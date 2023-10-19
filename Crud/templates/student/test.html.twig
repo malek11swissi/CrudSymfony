@@ -1,0 +1,68 @@
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 20px 0;
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+   th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    tr:hover {
+        background-color: #e5e5e5;
+    }
+
+    .actions {
+        text-align: center;
+    }
+
+    .actions a {
+        display: inline-block;
+        padding: 5px 10px;
+        margin: 5px;
+        text-decoration: none;
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 3px;
+    }
+
+    .actions a:hover {
+        background-color: #555;
+    }
+
+</style>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Classe</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+     <a href="{{ path('add') }}" class="btn btn-danger"  style="color: red">Ajouter</a>
+        {% for repo in response %}
+            <tr>
+                <td>{{ repo.nom }}</td>
+                <td>{{ repo.prenom }}</td>
+                <td>{{ repo.classroom }}</td>
+                <td>
+                    <a href="{{ path('modifier_student', {'id': repo.id}) }}" class="btn btn-primary" style="color: green">Modifier</a>
+                    <a href="{{ path('delete_student', {'id': repo.id  }) }}" class="btn btn-danger"  style="color: red">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

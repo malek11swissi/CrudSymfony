@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier l'étudiant{% endblock %}
+
+{% block body %}
+    <h1>Modifier l'étudiant</h1>
+
+    {{ form_start(f) }}
+    <div class="form-group">
+        {{ form_label(f.nom, 'Nom de l\'étudiant') }}
+        {{ form_widget(f.nom, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(f.prenom, 'Prénom de l\'étudiant') }}
+        {{ form_widget(f.prenom, { 'attr': {'class': 'form-control'} }) }}
+        <div class="form-group">
+        {{ form_label(f.Classroom, 'Classe de l\'étudiant') }}
+        {{ form_widget(f.Classroom, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    </div>
+ 
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+    {{ form_end(f) }}
+    
+    <a href="{{ path('fetch') }}" class="btn btn-secondary">Retour à la liste des étudiants</a>
+{% endblock %}
